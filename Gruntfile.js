@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 module.exports = function (grunt) {
 
 	grunt.initConfig({
@@ -168,6 +167,7 @@ module.exports = function (grunt) {
               module: true,
               document: true
             },
+            'esversion': 6
           },
           browser: {
               files: {
