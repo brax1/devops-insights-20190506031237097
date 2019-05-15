@@ -44,7 +44,7 @@
 		it('with valid zip code and error from request call', function() {
 			reqMock = {
 				query: {
-					zip: 'Hamilton'
+					zip: "Hamilton"
 				}
 			};
 
@@ -66,7 +66,7 @@
 		it('with incomplete zip code', function() {
 			reqMock = {
 				query: {
-					zip: 'Hami'
+					zip: "Hostile"
 				}
 			};
 
