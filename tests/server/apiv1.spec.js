@@ -66,7 +66,7 @@
 		it('with incomplete zip code', function() {
 			reqMock = {
 				query: {
-					zip: "Hostile"
+					zip: "Hamil"
 				}
 			};
 
@@ -160,7 +160,7 @@
 		it('with incomplete zip code', function() {
 			reqMock = {
 				query: {
-					zip: 'Hamilton'
+					zip: 'Hamil'
 				}
 			};
 
