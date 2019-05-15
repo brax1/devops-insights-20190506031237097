@@ -38,7 +38,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
         	
         	//starts a new timer to ensure user is entering city name
         	
-        	t = setTimeout(
+        	t = setTimeout(() => 
         	
             $http({
                 method: "GET",
