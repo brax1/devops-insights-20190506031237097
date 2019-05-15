@@ -16,7 +16,8 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
     $scope.somemessage = "Some weather";
     $scope.zip1City = "";
     $scope.zip1Weather = "";
-
+	//variable to hold a timer to wait for user input
+	var t;
     $scope.zip = function(which) {
 
         var data = "";
@@ -30,7 +31,15 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             data = $scope.zip4m;
         } 
 
-        if(data.length === 5) {
+        if(data.length >= 1) {
+        	//clears a timeout to reset the timer everytime a new character is entered by user
+        	
+        	clearTimeout(t);
+        	
+        	//starts a new timer to ensure user is entering city name
+        	
+        	t = setTimeout(
+        	
             $http({
                 method: "GET",
                 url: '/api/v1/getWeather?zip=' + data
@@ -48,7 +57,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                     $scope.zip4City = response.data.city;
                     $scope.zip4Weather = response.data.weather;
                 } 
-            });
+            }),500);
         } else {
             if(which === 1) {
                     $scope.zip1City = "";
