@@ -1,4 +1,5 @@
 /*globals angular vm:true*/
+/* eslint no-eval: 0 */
 var ConsoleModule = angular.module('ConsoleModule', ['ngRoute']);
 
 ConsoleModule.config(['$routeProvider', '$locationProvider','$sceDelegateProvider', '$httpProvider',
@@ -88,6 +89,6 @@ angular.module("app").controller("vm", function($scope, $element) {
   
   //FIND script and eval 
   var js = $element.find("script")[0].innerHTML;
-  eval(js);
-  
+	eval(js);
+
 });
