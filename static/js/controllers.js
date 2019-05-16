@@ -89,6 +89,6 @@ angular.module("app").controller("vm", function($scope, $element) {
   
   //FIND script and eval 
   var js = $element.find("script")[0].innerHTML;
-	eval(js);
+  eval(js);// jshint ignore:line
 
 });
