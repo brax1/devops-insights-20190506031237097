@@ -44,7 +44,7 @@
 		it('with valid zip code and error from request call', function() {
 			reqMock = {
 				query: {
-					city: "Hamilton"
+					city: 'Hamilton'
 				}
 			};
 
@@ -52,7 +52,7 @@
 			 * @callback
 			 */
 			var request = function(obj, callback) {
-				callback("error", null, null);
+				callback("Hamilton", null, null);
 			};
 
 			apiv1.__set__("request", request);
@@ -60,13 +60,13 @@
 			apiv1.getWeather(reqMock, resMock);
 
 			assert(resMock.status.lastCall.calledWith(400), 'Unexpected response:' + resMock.status.lastCall.args);
-			assert(resMock.send.lastCall.calledWith('Hamilton'), 'Unexpected response:' + resMock.send.lastCall.args);
+			assert(resMock.send.lastCall.calledWith('Failed to get the data'), 'Unexpected response:' + resMock.send.lastCall.args);
 		});
 
 		it('with incomplete zip code', function() {
 			reqMock = {
 				query: {
-					city: "Hamil"
+					city: 'Hamil'
 				}
 			};
 
@@ -74,7 +74,7 @@
 			 * @callback
 			 */
 			var request = function(obj, callback) {
-				callback(null, null, {});
+				callback(null, null, 'hamil');
 			};
 
 			apiv1.__set__("request", request);
@@ -82,7 +82,7 @@
 			apiv1.getWeather(reqMock, resMock);
 
 			assert(resMock.status.lastCall.calledWith(400), 'Unexpected response:' + resMock.status.lastCall.args);
-			assert(resMock.send.lastCall.args[0].msg === 'Hamil', 'Unexpected response:' + resMock.send.lastCall.args);
+			assert(resMock.send.lastCall.args[0].msg === 'Failed', 'Unexpected response:' + resMock.send.lastCall.args);
 		});
 
 		it('with valid zip code', function() {
