@@ -52,7 +52,7 @@
 			 * @callback
 			 */
 			var request = function(obj, callback) {
-				callback("error", null, null);
+				callback("Hamilton", null, null);
 			};
 
 			apiv1.__set__("request", request);
