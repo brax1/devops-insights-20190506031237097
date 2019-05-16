@@ -44,7 +44,7 @@
 		it('with valid zip code and error from request call', function() {
 			reqMock = {
 				query: {
-					zip: "Hamilton"
+					zip: "Hamilton,nz"
 				}
 			};
 
@@ -52,7 +52,7 @@
 			 * @callback
 			 */
 			var request = function(obj, callback) {
-				callback("Hamilton", null, null);
+				callback("error", null, null);
 			};
 
 			apiv1.__set__("request", request);
