@@ -83,8 +83,8 @@ angular.module("app",[]);
 
 angular.module("app").controller("vm", function($scope, $element) {
   vm = $scope;
-  // vm.html = '<script> /*globals google */ var map; function initMap() { map = new google.maps.Map(document.getElementById('map'), {center: {lat: -34.397, lng: 150.644}, zoom: 8 }); } </script>'
-  vm.html = '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc0ZOpUE2XbUsFtimj-so3hq32h-HUpvs&callback=initMap"async defer></script>';
+  vm.html = '<script> /*globals google */ var map; function initMap() { map = new google.maps.Map(document.getElementById("map"), {center: {lat: -34.397, lng: 150.644}, zoom: 8 }); } </script><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc0ZOpUE2XbUsFtimj-so3hq32h-HUpvs&callback=initMap"async defer></script>';
+  //vm.html = '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc0ZOpUE2XbUsFtimj-so3hq32h-HUpvs&callback=initMap"async defer></script>';
   
   //FIND script and eval 
   var js = $element.find("script")[0].innerHTML;
